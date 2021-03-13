@@ -43,4 +43,19 @@ const UserSchema = new Schema (
             match: [/^#?([a-f0-9]{6}|[a-f0-9]{3})$/]
         },
     }
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        // Prevents virtuals from creating duplicate of _id as `id`
+        id: false
+    }
 )
+
+UserSchema.virtual('').get(function() {
+    return this.friends.length;
+});
+
+const User = model('User', UserSchema);
+
+module.exports = User;

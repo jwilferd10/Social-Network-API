@@ -35,6 +35,12 @@ const UserSchema = new Schema (
             unique: true,
             required: true,
             trim: true
-        }
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match: [/^#?([a-f0-9]{6}|[a-f0-9]{3})$/]
+        },
     }
 )

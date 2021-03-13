@@ -42,8 +42,13 @@ const UserSchema = new Schema (
             unique: true,
             match: [/^#?([a-f0-9]{6}|[a-f0-9]{3})$/]
         },
-    }
+        // Array of _id values referencing the Thought model
+        thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],
+        // Array of _id values referencing the User model (self-reference)
+        friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    },
     {
+
         toJSON: {
             virtuals: true,
         },

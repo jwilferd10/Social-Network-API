@@ -30,7 +30,7 @@ const thoughtController = {
                 console.log(err);
                 res.status(400);
             });
-    }
+    },
 
     /* 
     POST to create a new thought
@@ -41,9 +41,32 @@ const thoughtController = {
             "userId": "5edff358a0fcb779aa7b118b"
         }
     */
+    createThought({params, body }, res) {
+        console.log(params);
+
+        Thought.create(body)
+            .then(({ _id }) => {
+                return User.findOneAndUpdate (
+                    { _id: params.userId },
+                    { $push: { thoughts: _id } },
+                    { new: true }
+                );
+            })
+            // Check for errors
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'There is NO user found with this id!' });
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => 
+                res.json(err)
+            );
+    },
 
     // PUT to update a thought by its _id
-    
+    // updateThought({ param})
     // Delete to remove a thought by its _id
 
     // === REACTIONS === //

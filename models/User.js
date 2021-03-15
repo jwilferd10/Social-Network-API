@@ -15,7 +15,7 @@ const UserSchema = new Schema (
             type: String,
             required: true,
             unique: true,
-            match: [/^#?([a-f0-9]{6}|[a-f0-9]{3})$/]
+            match: [/.+@.+\..+/]
         },
         // Array of _id values referencing the Thought model
         thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],

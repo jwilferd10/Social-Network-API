@@ -4,9 +4,17 @@ const thoughtController = {
     // GET all available thoughts
     getAllThoughts(req, res) {
         Thought.find({})
+        // Populate with reactions
+        .populate({ path: 'reactions', select: '-__v' })
+        .select('-__v')
+        .then(dbThoughtData => res.json(dbThoughtData))
+        .catch (err => {
+            console.log(err);
+            res.sendStatus(400);
+        });
 
     }
-    // FGET one thought by _id
+    // GET one thought by _id
 
     /* 
     POST to create a new thought
@@ -22,7 +30,11 @@ const thoughtController = {
     
     // Delete to remove a thought by its _id
 
-    // Reactions
+    // === REACTIONS === //
+
+    // POST to create a reaction stored in a single thought's reactions array field
+
+    // DELETE to pull and remove a reaction by the reaction's reactionId value
 }
 
 module.exports = thoughtController;

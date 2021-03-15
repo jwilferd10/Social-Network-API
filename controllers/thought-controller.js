@@ -12,9 +12,25 @@ const thoughtController = {
             console.log(err);
             res.sendStatus(400);
         });
-
-    }
+    },
+    
     // GET one thought by _id
+    getThoughtById({ params }, res) {
+        Thought.findOne({ _id: params.id })
+            .populate({ path: 'reactions', select: '-__v' })
+            .select('-__v')
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'There is NO thought found with this id!' });
+                    return;
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(400);
+            });
+    }
 
     /* 
     POST to create a new thought

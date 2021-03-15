@@ -18,10 +18,14 @@ const userController = {
     // testing link: /api/users/:id
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
-            .populate ({
-                path: 'thoughts',
-                select: '-__v'
-            })
+        // Turn populate into an array.
+        // GET a single user by its _id and populated thought and friend data
+        .populate([ 
+            // Reference comments
+            { path: 'comments', select: '-__v' },
+            // Reference friends
+            { path: 'friends', select: '-__v' },
+        ])
             .select('-__v')
             .then(dbUserData => res.json(dbUserData))
             .catch(err => {

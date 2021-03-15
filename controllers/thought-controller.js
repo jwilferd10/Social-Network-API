@@ -79,7 +79,14 @@ const thoughtController = {
                 res.json(err)
             );
     },
+
     // Delete to remove a thought by its _id
+    deleteThought({ params }, res) {
+        Thought.findOneAndDelete({ _id: params.id })
+            then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => res.json(err));
+    },
+
 
     // === REACTIONS === //
 

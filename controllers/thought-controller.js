@@ -80,11 +80,33 @@ const thoughtController = {
             );
     },
 
-    // Delete to remove a thought by its _id
+    // Delete/Remove to remove a thought by its _id
     deleteThought({ params }, res) {
-        Thought.findOneAndDelete({ _id: params.id })
-            then(dbThoughtData => res.json(dbThoughtData))
-            .catch(err => res.json(err));
+        Thought.findOneAndDelete({ _id: params.thoughtId })
+            .then(deletedThought => {
+                if (!deletedThought) {
+                    res.status(404).json({ message: 'There is NO thought found with this id!' });
+                    return;
+                }
+                // Note to self: 
+                // We're updating the id
+                // $pull on specifically the thoughtId
+                return User.findOneAndUpdate (
+                    { _id: params.userId },
+                    { $pull: { thoughts: params.thoughtId } },
+                    { new: true }
+                );
+            })
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'There is NO user found with this id!' });
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => 
+                res.json(err)
+            );
     },
 
 

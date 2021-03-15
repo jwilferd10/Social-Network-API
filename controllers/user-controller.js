@@ -27,6 +27,23 @@ const userController = {
             console.log(err);
             res.sendStatus(400)
         });
-    }
+    },
 
-}
+    // Delete a user
+    // testing link: /api/users/:id
+    deleteUser({ params }, res) {
+        User.findOneAndDelete({ _id: params.id })
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json ({ message: 'There is NO user found by this id!' });
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err =>
+                res.json(err)
+            );
+    }
+};
+
+module.exports = userController;

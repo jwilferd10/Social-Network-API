@@ -2,7 +2,10 @@ const { Thought, User } = require('../models');
 
 const thoughtController = {
     // GET all available thoughts
+    getAllThoughts(req, res) {
+        Thought.find({})
 
+    }
     // FGET one thought by _id
 
     /* 
@@ -18,4 +21,8 @@ const thoughtController = {
     // PUT to update a thought by its _id
     
     // Delete to remove a thought by its _id
+
+    // Reactions
 }
+
+module.exports = thoughtController;

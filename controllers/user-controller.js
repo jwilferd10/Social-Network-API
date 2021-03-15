@@ -29,7 +29,17 @@ const userController = {
         });
     },
 
+    // Create a new user
+    createUser({ body }, res) {
+        User.create(body)
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => 
+                res.json(err)
+            );
+    },
+    
     // Update User by id
+    // testing link: /api/users/:id
     updateUser ({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true })
             .then(dbUserData => {

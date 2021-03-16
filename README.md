@@ -12,7 +12,7 @@
   - [Contact Information](#contact-information)
 
 ## Description:
-Internet retail, also known as e-commerce, is the largest sector of the electronics industry, having generated an estimated US$29 trillion in 2017 (Source: United Nations Conference on Trade and Development). This ORM-E-Commerce is the back end for an e-commerce site. There's a plethora amount of things happening within the scripts that takes a bit to understand, thankfully after spending time on this I am definitely leaving with a better understanding more how CRUD methods work and with a better understanding of RESTful CRUD Operations.
+MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. Thus this project was built utilizing MongoDB, it is a social network application where users can create accounts and give their two cents, react to friends' thoughts, and create a friends list. Alongside MongoDB's database, this project uses both Express.js and the Mongoose ODM. Timestamps utilize JavaScript. This was an odd step from MySQL and into the realm of NoSQL, the progress of putting together the API was an experience that strengthens understanding on setting up back-end environments for projects.
 
 ## User Story
 **AS A social media startup**
@@ -31,10 +31,8 @@ Internet retail, also known as e-commerce, is the largest sector of the electron
 
 ## Resources Used
 
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.7"
+    "mongoose": "^5.12.0"
 
 ## Installation
 Install this project by clicking the *GREEN* button above, you can download it by ZIP or copy the SSH!

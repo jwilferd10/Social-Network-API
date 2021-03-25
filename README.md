@@ -42,6 +42,22 @@ MongoDB is a popular choice for many social networks due to its speed with large
 Install this project by clicking the *GREEN* button above, you can download it by ZIP or copy the SSH!
 
 ## Usage
- 
+ - Users
+    - CREATE NEW: localhost:3001/api/users, enter a username and password
+    - GET ALL: /localhost:3001/api/users
+    - GET SINGLE: /localhost:3001/api/users/<userId>
+    - DELETE: /localhost:3001/api/users/<userId>
+    - UPDATE: /localhost:3001/api/users/<userId>
+ - Thoughts
+    - CREATE NEW localhost:3001/api/thoughts/604fbe63dbdf0d11c80b92db (enter thoughtText, username, userId)
+    - GET ALL: localhost:3001/api/thoughts/<userId>
+    - GET SINGLE: localhost:3001/api/thoughts/604fbe63dbdf0d11c80b92db
+    - DELETE THOUGHTS: localhost:3001/api/users/:userId/friends/:friendId
+ - Friends
+    - ADD FRIEND: localhost:3001/api/users/<userId>/friends/<friendId>
+    - DELETE FRIEND: localhost:3001/api/users/<userId>/friends/<friendId>
+ - Reactions
+    - CREATE REACTION (PUT REQUEST): localhost:3001/api/thoughts/<thoughtId>/reactions
+    - DELETE REACTION: /api/thoughts/:thoughtId/reactions
 ## Contact Information
 - ### [jwilferd10](https://github.com/jwilferd10)

@@ -3,6 +3,9 @@
 <br>
 <br>
 **Github Repo:** https://github.com/jwilferd10/Social-Network-API
+<br>
+<br>
+Video: https://www.youtube.com/watch?v=dDx-k-drIR0&ab_channel=JonathanWilferd
 
 ## Table of Contents 
   - [Description](#description)

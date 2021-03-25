@@ -1,4 +1,4 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 // Reaction (SCHEMA ONLY)
@@ -27,9 +27,7 @@ const ReactionSchema = new Schema (
     {
         toJSON: {
             getters: true
-        },
-        // Prevents virtuals from creating duplicate of _id as `id`
-        id: false
+        
     }
 );
 

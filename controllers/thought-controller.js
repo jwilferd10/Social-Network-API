@@ -5,20 +5,16 @@ const thoughtController = {
     getAllThoughts(req, res) {
         Thought.find({})
         // Populate with reactions
-        .populate({ path: 'reactions', select: '-__v' })
-        .select('-__v')
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch (err => {
             console.log(err);
-            res.sendStatus(400);
+            res.sendStatus(400).json(err);
         });
     },
     
     // GET one thought by _id
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.id })
-            .populate({ path: 'reactions', select: '-__v' })
-            .select('-__v')
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: 'There is NO thought found with this id!' });

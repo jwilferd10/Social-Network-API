@@ -16,7 +16,7 @@ Video: https://www.youtube.com/watch?v=dDx-k-drIR0&ab_channel=JonathanWilferd
   - [Contact Information](#contact-information)
 
 ## Description:
-MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. Thus this project was built utilizing MongoDB, it is a social network application where users can create accounts and give their two cents, react to friends' thoughts, and create a friends list. Alongside MongoDB's database, this project uses both Express.js and the Mongoose ODM. Timestamps utilize JavaScript. This was an odd step from MySQL and into the realm of NoSQL, the progress of putting together the API was an experience that strengthens understanding on setting up back-end environments for projects.
+Thanks for stopping by and checking out this experiment with MongoDB! MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. Thus this project was built utilizing MongoDB, it is a social network application where users can create accounts and give their two cents, react to friends' thoughts, and create a friends list. Alongside MongoDB's database, this project uses both Express.js and the Mongoose ODM. Timestamps utilize JavaScript. This was an odd step from MySQL and into the realm of NoSQL, the progress of putting together the API was an experience that strengthens understanding on setting up back-end environments for projects.. I'm definitely going to come back to the world of NoSQL at a later point to reinforce the information I learned. All that being said, please enjoy the API!
 
 ## User Story
 **AS A social media startup**
